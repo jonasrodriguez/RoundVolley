@@ -2,4 +2,9 @@
     <qresource prefix="/">
         <file alias="mainWindow">qml/main.qml</file>
     </qresource>
+    <qresource prefix="/images">
+        <file alias="ball1">qml/images/ball1.png</file>
+        <file alias="ball2">qml/images/ball2.png</file>
+        <file alias="sport_ball">qml/images/sport_ball.png</file>
+    </qresource>
 </RCC>
