@@ -1,4 +1,4 @@
-import QtQuick 2.9
+import QtQuick 2.12
 import QtQuick.Window 2.2
 
 Window {
@@ -8,4 +8,6 @@ Window {
 
     width: 1280
     height: 720
+
+    Bolas {}
 }
