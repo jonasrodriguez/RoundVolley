@@ -14,12 +14,14 @@ Rectangle {
         height: parent.height
         x: ballPosition.posX
         y: ballPosition.posY
+        rotation: ballPosition.rotation
+        transformOrigin: Item.Center
 //            anchors.left: parent.left
 //            anchors.bottom: parent.bottom
-        RotationAnimator on rotation {
-            from: 0;
-            to: 180;
-            duration: 1000
-        }
+//        RotationAnimator on rotation {
+//            from: 0;
+//            to: 180;
+//            duration: 1000
+//        }
     }
 }
