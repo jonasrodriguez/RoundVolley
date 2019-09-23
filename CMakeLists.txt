@@ -11,8 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Core Quick Sql REQUIRED)
 
 # include
-#include_directories(${CMAKE_SOURCE_DIR}/interfaces ${CMAKE_SOURCE_DIR}/src/qtSeedUI ${CMAKE_SOURCE_DIR}/src/qtSeedUI/utilities)
-#include_directories(${CMAKE_SOURCE_DIR}/src/qtSeedComms ${CMAKE_SOURCE_DIR}/src/qtSeedDb ${CMAKE_SOURCE_DIR}/src/qtSeedBusiness)
+include_directories(${CMAKE_SOURCE_DIR}/src)
 
 # Looking for files
 file(GLOB_RECURSE SRC "src/*.cpp" )

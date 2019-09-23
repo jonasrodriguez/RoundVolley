@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/Bolas.qml</file>
+        <file>qml/MainScreen.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="ball1">qml/images/ball1.png</file>

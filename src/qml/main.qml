@@ -9,5 +9,5 @@ Window {
     width: 1280
     height: 720
 
-    Bolas {}
+    MainScreen{}
 }

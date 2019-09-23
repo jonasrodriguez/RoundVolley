@@ -3,12 +3,16 @@
 #include <QQmlContext>
 #include <QQuickWindow>
 
+#include "logic/KeyInput.h"
 #include "views/BallPosition.h"
 
 int main(int argc, char *argv[]) {
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
   QGuiApplication app(argc, argv);
+
+  KeyInput *ki = new KeyInput;
+  app.installEventFilter(ki);
 
   QQmlApplicationEngine engine;
 
