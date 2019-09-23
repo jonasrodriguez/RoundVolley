@@ -1,8 +1,28 @@
 #include "Positions.h"
+#include "KeyInput.h"
+#include <QDebug>
 
-Positions::Positions() {}
+Positions::Positions(const KeyInput *keyInput) {
+  connect(keyInput, &KeyInput::P1MoveUp, this, &Positions::PlayerOneUp);
+  connect(keyInput, &KeyInput::P1MoveLeft, this, &Positions::PlayerOneLeft);
+  connect(keyInput, &KeyInput::P1MoveRight, this, &Positions::PlayerOneRight);
 
-rv::Position Positions::GetBall1() {
-  rv::Position position;
-  return position;
+  // Player One initial position
+  firstBall_.posX = (rv::playAreaWidth / 2) - (rv::ballDiameter / 2);
+  firstBall_.posY = rv::playAreaHeight - rv::ballDiameter;
+  firstBall_.rotation = 0;
+
+  //  QTimer *timer = new QTimer(this);
+  //  connect(timer, &QTimer::timeout, this, &BallPosition::TimerTrigger);
+  //  timer->start(10);
 }
+
+rv::Position Positions::GetFirstBall() const { return firstBall_; }
+
+rv::Position Positions::GetSecondBall() const { return secondBall_; }
+
+rv::Position Positions::GetPlayBall() const { return playBall_; }
+
+void Positions::PlayerOneUp() { qDebug() << "PlayerOneUp"; }
+void Positions::PlayerOneLeft() { qDebug() << "PlayerOneLeft"; }
+void Positions::PlayerOneRight() { qDebug() << "PlayerOneRight"; }

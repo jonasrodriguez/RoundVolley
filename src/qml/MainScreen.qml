@@ -12,15 +12,19 @@ Item {
             height: playArea.height
             width: 630
             color: "light yellow"
-            Image {
-                source: "qrc:/images/ball1"
-                fillMode: Image.PreserveAspectFit
+            Rectangle {
+                id: playerOne
                 height: 100
                 width: 100
-                x: ballPosition.posX
-                y: ballPosition.posY
-                rotation: ballPosition.rotation
-                transformOrigin: Item.Center
+                x: ballPosition.p1PosX
+                y: ballPosition.p1PosY
+                radius: 180
+                Image {
+                    source: "qrc:/images/ball1"
+                    anchors.fill: parent
+                    rotation: ballPosition.p1Rot
+                    transformOrigin: Item.Center
+                }
             }
         }
         Rectangle {
@@ -33,15 +37,19 @@ Item {
             height: playArea.height
             width: 630
             color: "light green"
-            Image {
-                source: "qrc:/images/ball2"
-                fillMode: Image.PreserveAspectFit
+            Rectangle {
+                id: playerTwo
                 height: 100
                 width: 100
-                x: 300
-                y: 430
-                rotation: ballPosition.rotation
-                transformOrigin: Item.Center
+                x: ballPosition.p1PosX
+                y: ballPosition.p1PosY
+                radius: 180
+                Image {
+                    source: "qrc:/images/ball2"
+                    anchors.fill: parent
+                    rotation: ballPosition.p1Rot
+                    transformOrigin: Item.Center
+                }
             }
         }
     }

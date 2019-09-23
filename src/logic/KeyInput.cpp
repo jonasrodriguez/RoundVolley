@@ -10,19 +10,15 @@ bool KeyInput::eventFilter(QObject *object, QEvent *event) {
     QKeyEvent *key = static_cast<QKeyEvent *>(event);
     switch (key->key()) {
     case Qt::Key_W:
-      qDebug() << "Key W!";
       emit P1MoveUp();
       return true;
     case Qt::Key_A:
-      qDebug() << "Key A!";
       emit P1MoveLeft();
       return true;
     case Qt::Key_S:
-      qDebug() << "Key S!";
       emit P1MoveDown();
       return true;
     case Qt::Key_D:
-      qDebug() << "Key D!";
       emit P1MoveRight();
       return true;
     default:

@@ -4,6 +4,7 @@
 #include <QQuickWindow>
 
 #include "logic/KeyInput.h"
+#include "logic/Positions.h"
 #include "views/BallPosition.h"
 
 int main(int argc, char *argv[]) {
@@ -11,12 +12,17 @@ int main(int argc, char *argv[]) {
 
   QGuiApplication app(argc, argv);
 
+  // Keyboard input filtering
   KeyInput *ki = new KeyInput;
   app.installEventFilter(ki);
 
   QQmlApplicationEngine engine;
 
-  BallPosition ballPosition;
+  // Ball position logic
+  Positions *positions = new Positions(ki);
+
+  // Ball position view
+  BallPosition ballPosition(positions);
   engine.rootContext()->setContextProperty("ballPosition", &ballPosition);
 
   engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
