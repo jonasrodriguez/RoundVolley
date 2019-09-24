@@ -23,6 +23,19 @@ rv::Position Positions::GetSecondBall() const { return secondBall_; }
 
 rv::Position Positions::GetPlayBall() const { return playBall_; }
 
-void Positions::PlayerOneUp() { qDebug() << "PlayerOneUp"; }
-void Positions::PlayerOneLeft() { qDebug() << "PlayerOneLeft"; }
-void Positions::PlayerOneRight() { qDebug() << "PlayerOneRight"; }
+void Positions::PlayerOneUp() {
+  firstBall_.posY -= 5;
+  emit UpdateP1Position();
+}
+
+void Positions::PlayerOneLeft() {
+  firstBall_.posX -= 5;
+  firstBall_.rotation -= 5;
+  emit UpdateP1Position();
+}
+
+void Positions::PlayerOneRight() {
+  firstBall_.posX += 5;
+  firstBall_.rotation += 5;
+  emit UpdateP1Position();
+}
