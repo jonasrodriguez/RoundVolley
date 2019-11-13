@@ -7,12 +7,22 @@ class KeyInput : public QObject {
 public:
   explicit KeyInput(QObject *parent = nullptr);
 
-signals:
-  void P1MoveUp();
-  void P1MoveDown();
-  void P1MoveLeft();
-  void P1MoveRight();
-
 public:
   bool eventFilter(QObject *object, QEvent *event) override;
+
+  bool IsWPress() const;
+  bool IsAPress() const;
+  bool IsDPress() const;
+
+  bool IsUpPress();
+  bool IsLeftPress();
+  bool IsRightPress();
+
+private:
+  bool w_key_press;
+  bool a_key_press;
+  bool d_key_press;
+  bool up_key_press;
+  bool left_key_press;
+  bool right_key_press;
 };

@@ -12,9 +12,9 @@ Rectangle {
         source: "qrc:/images/ball1"
         fillMode: Image.PreserveAspectFit
         height: parent.height
-        x: ballPosition.posX
-        y: ballPosition.posY
-        rotation: ballPosition.rotation
+        x: playerOne.posX
+        y: playerOne.posY
+        rotation: playerOne.rot
         transformOrigin: Item.Center
     }
 }

@@ -13,22 +13,22 @@ Item {
             width: 630
             color: "light yellow"
             Rectangle {
-                id: playerOne
+                id: pOne
                 height: 100
                 width: 100
-                x: ballPosition.p1PosX
-                y: ballPosition.p1PosY
+                x: playerOne.posX
+                y: playerOne.posY
                 radius: 180
                 Image {
                     source: "qrc:/images/ball1"
                     anchors.fill: parent
-                    rotation: ballPosition.p1Rot
+                    rotation: playerOne.rot
                     transformOrigin: Item.Center
                 }
             }
         }
         Rectangle {
-            height: playArea.height / 2
+            height: 400
             width: 20
             color: "black"
             anchors.bottom: parent.bottom
@@ -38,16 +38,16 @@ Item {
             width: 630
             color: "light green"
             Rectangle {
-                id: playerTwo
+                id: pTwo
                 height: 100
                 width: 100
-                x: ballPosition.p1PosX
-                y: ballPosition.p1PosY
+                x: playerOne.posX
+                y: playerOne.posY
                 radius: 180
                 Image {
                     source: "qrc:/images/ball2"
                     anchors.fill: parent
-                    rotation: ballPosition.p1Rot
+                    rotation: playerOne.rot
                     transformOrigin: Item.Center
                 }
             }

@@ -3,9 +3,13 @@
 #include <QQmlContext>
 #include <QQuickWindow>
 
+#include <memory>
+
+#include "logic/Engine.h"
 #include "logic/KeyInput.h"
-#include "logic/Positions.h"
-#include "views/BallPosition.h"
+
+#include "views/PlayBall.h"
+#include "views/PlayerOne.h"
 
 int main(int argc, char *argv[]) {
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -18,12 +22,15 @@ int main(int argc, char *argv[]) {
 
   QQmlApplicationEngine engine;
 
-  // Ball position logic
-  Positions *positions = new Positions(ki);
+  // Balls Views
+  std::shared_ptr<PlayerOne> playerOne(new PlayerOne);
+  engine.rootContext()->setContextProperty("playerOne", playerOne.get());
 
-  // Ball position view
-  BallPosition ballPosition(positions);
-  engine.rootContext()->setContextProperty("ballPosition", &ballPosition);
+  std::shared_ptr<PlayBall> playBall(new PlayBall);
+  engine.rootContext()->setContextProperty("playBall", playBall.get());
+
+  // Start game engine
+  Engine game_engine(ki, playBall, playerOne);
 
   engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
   if (engine.rootObjects().isEmpty())
